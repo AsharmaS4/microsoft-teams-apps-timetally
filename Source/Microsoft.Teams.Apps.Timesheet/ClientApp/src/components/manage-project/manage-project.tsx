@@ -385,6 +385,26 @@ class ManageProject extends React.Component<IManageProjectProps, IManageProjectS
         }
     }
 
+    /** 
+     * Invoked when user click delete task Button.
+     */
+     onRemoveProject = async () => {
+        let response = await deleteProjectByIdAsync(this.params.projectId!, this.handleTokenAccessFailure);        
+    }
+/*
+    onProjectCardClick = (projectId: string) => {
+        this.props.microsoftTeams.tasks.startTask({
+            title: this.localize("projectUtilization"),
+            height: 746,
+            width: 601,
+            url: `${window.location.origin}/manage-project/${projectId}/${this.state.isMobileView}`
+        }, (error: any, result: any) => {
+            this.getDashboardTimesheetsAsync();
+            this.getDashboardProjectsAsync();
+        });
+    }
+*/
+
     /**
      * Adds member in database.
      * @param selectedUsers Selected users to add.
@@ -541,6 +561,9 @@ class ManageProject extends React.Component<IManageProjectProps, IManageProjectS
                         <Flex.Item>
                             <Text content={this.state.projectDetails.title} size="large" weight="semibold" />
                         </Flex.Item>
+                        <Flex.Item>
+                            <Button className="add-row-button" data-tid="addRowButton" icon={<AddIcon outline />} content={this.localize("addRowButtonLabel")} onClick={this.onRemoveProject} />
+                        </Flex.Item>
                         <Flex.Item push>
                             <Flex className="date-dropdown">
                                 <Dropdown
@@ -604,6 +627,9 @@ class ManageProject extends React.Component<IManageProjectProps, IManageProjectS
                                 <AddIcon className="mobile-action-button" onClick={this.onAddTaskButtonClick} />
                                 <Icon className="mobile-action-button" onClick={this.onAddPeopleButtonClick} iconName="AddFriend" />
                             </Flex>
+                        </Flex.Item>
+                        <Flex.Item>
+                            <Button styles={{ marginTop: "0.5rem" }} fluid size="small" icon={<AddIcon outline />} content={this.localize("addRowButtonLabel")} onClick={this.onRemoveProject} />
                         </Flex.Item>
                     </Flex>
                     <Flex hAlign="center" className="date-dropdown">

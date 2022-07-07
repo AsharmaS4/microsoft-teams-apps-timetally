@@ -157,6 +157,17 @@ export const deleteMemberTaskAsync = async (projectId: string, taskId: string, h
 }
 
 /**
+ * Deletes a project created by project member.
+ * @param projectId The project Id of which task to be deleted.
+ * @param  {VoidFunction} handleTokenAccessFailure Call back to handle token access failure and redirect to sign-in page.
+ */
+
+ export const deleteProjectByIdAsync = async (projectId: string, handleTokenAccessFailure: (error: string) => void) => {
+    let requestUrl = `/api/projects/${projectId}`;
+    return axios.delete(requestUrl, handleTokenAccessFailure);
+}
+
+/**
  * Get approved and active project details for dashboard between date range.
  * @param startDate The start date of the date range.
  * @param endDate The end date of the date range.
