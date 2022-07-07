@@ -23,7 +23,7 @@ import IProjectTaskOverview from "../../models/project-task-overview";
 import ITask from "../../models/task";
 import { IUserDropdownItem } from "../common/people-picker/people-picker";
 import { Guid } from "guid-typescript";
-import { getProjectUtilizationAsync, deleteMembersAsync, deleteTasksAsync, getProjectMembersOverviewAsync, getProjectTasksOverviewAsync, createTasksAsync, addMembersAsync } from "../../api/project";
+import { getProjectUtilizationAsync, deleteMembersAsync, deleteTasksAsync, deleteProjectByIdAsync, getProjectMembersOverviewAsync, getProjectTasksOverviewAsync, createTasksAsync, addMembersAsync } from "../../api/project";
 import { getUserProfilesAsync } from "../../api/users";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 import IUser from "../../models/user";
